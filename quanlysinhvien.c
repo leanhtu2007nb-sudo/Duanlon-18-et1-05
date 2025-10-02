@@ -40,7 +40,7 @@ void themSinhVien(SinhVien ds[], int *n) {
 	getchar();
 
 
-	printf("Quê quán: ");
+	printf("Que quan: ");
 	fgets(ds[*n].queQuan, sizeof(ds[*n].queQuan), stdin); // Nhập quê quán
 	ds[*n].queQuan[strcspn(ds[*n].queQuan, "\n")] = 0;
 	
@@ -155,3 +155,4 @@ int main() {
 	} while(luaChon != 0);
 	return 0;
 }
+
