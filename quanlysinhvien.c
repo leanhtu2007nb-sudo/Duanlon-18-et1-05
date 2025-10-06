@@ -15,9 +15,19 @@ typedef struct {
 
 // Hàm hiển thị danh sách sinh viên
 void hienThiDanhSach(SinhVien ds[], int n) {
+	// In tiêu đề bảng
 	printf("\nDanh sach sinh vien:\n");
+	printf("%-4s %-30s %-8s %-20s %-20s\n", "STT", "Ho ten", "Nam", "Que quan", "Ten nganh");
+	printf("%-4s %-30s %-8s %-20s %-20s\n", "----", "------------------------------", "----", "--------------------", "--------------------");
+	// In từng dòng với giới hạn độ dài cột (để bảng không bị phá vỡ)
 	for (int i = 0; i < n; i++) {
-		printf("%d. %s | %d | %s | %s\n", i+1, ds[i].hoTen, ds[i].namSinh,  ds[i].queQuan,  ds[i].tenNganh);
+		// %-30.30s: căn trái, tối đa 30 ký tự (cắt nếu dài)
+		printf("%-4d %-30.30s %-8d %-20.20s %-20.20s\n",
+			   i+1,
+			   ds[i].hoTen,
+			   ds[i].namSinh,
+			   ds[i].queQuan,
+			   ds[i].tenNganh);
 	}
 }
 
@@ -155,4 +165,5 @@ int main() {
 	} while(luaChon != 0);
 	return 0;
 }
+
 
