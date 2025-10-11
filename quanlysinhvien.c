@@ -153,17 +153,69 @@ int main() {
 		printf("Chon chuc nang: ");
 		scanf("%d", &luaChon);
 		switch(luaChon) {
-			case 1: themSinhVien(danhSach, &soLuong); break; // Thêm sinh viên
-			case 2: suaSinhVien(danhSach, soLuong); break;   // Sửa sinh viên
-			case 3: xoaSinhVien(danhSach, &soLuong); break;  // Xóa sinh viên
-			case 4: hienThiDanhSach(danhSach, soLuong); break; // Hiển thị danh sách
-			case 5: sapXepTheoTen(danhSach, soLuong); break; // Sắp xếp theo tên
-			case 6: timKiemTheoTen(danhSach, soLuong); break; // Tìm kiếm theo tên
+			case 1: {
+				// Thêm sinh viên liên tiếp cho đến khi người dùng muốn trở về
+				char tiep;
+				do {
+					themSinhVien(danhSach, &soLuong);
+					printf("Nhap 't' de them tiep, 'q' de tro ve menu: ");
+					scanf(" %c", &tiep);
+				} while (tiep == 't' || tiep == 'T');
+				break;
+			}
+			case 2: {
+				// Sửa sinh viên liên tiếp
+				char tiep;
+				do {
+					suaSinhVien(danhSach, soLuong);
+					printf("Nhap 't' de sua tiep, 'q' de tro ve menu: ");
+					scanf(" %c", &tiep);
+				} while (tiep == 't' || tiep == 'T');
+				break;
+			}
+			case 3: {
+				// Xóa sinh viên liên tiếp
+				char tiep;
+				do {
+					xoaSinhVien(danhSach, &soLuong);
+					printf("Nhap 't' de xoa tiep, 'q' de tro ve menu: ");
+					scanf(" %c", &tiep);
+				} while (tiep == 't' || tiep == 'T');
+				break;
+			}
+			case 4: {
+				// Hiển thị liên tiếp (nhấn 'q' để quay lại)
+				char tiep;
+				do {
+					hienThiDanhSach(danhSach, soLuong);
+					printf("Nhap 't' de hien thi lai, 'q' de tro ve menu: ");
+					scanf(" %c", &tiep);
+				} while (tiep == 't' || tiep == 'T');
+				break;
+			}
+			case 5: {
+				// Sắp xếp — cho phép lặp (ví dụ sắp nhiều lần)
+				char tiep;
+				do {
+					sapXepTheoTen(danhSach, soLuong);
+					printf("Nhap 't' de sap xep lai, 'q' de tro ve menu: ");
+					scanf(" %c", &tiep);
+				} while (tiep == 't' || tiep == 'T');
+				break;
+			}
+			case 6: {
+				// Tìm kiếm liên tiếp
+				char tiep;
+				do {
+					timKiemTheoTen(danhSach, soLuong);
+					printf("Nhap 't' de tim tiep, 'q' de tro ve menu: ");
+					scanf(" %c", &tiep);
+				} while (tiep == 't' || tiep == 'T');
+				break;
+			}
 			case 0: printf("Ket thuc chuong trinh!\n"); break; // Thoát chương trình
 			default: printf("Chuc nang khong hop le!\n"); // Chức năng không hợp lệ
 		}
 	} while(luaChon != 0);
 	return 0;
 }
-
-
